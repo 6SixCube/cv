@@ -4,7 +4,7 @@
 
 ```bash 
 docker tag cvmaker:latest sixc/cvmaker:latest
-docker login --username=sixc --password-stdin
+docker login --username=sixc
 docker push sixc/cvmaker:latest
 ```
 
