@@ -7,7 +7,7 @@ RUN apt-get -y update && \
     apt-get -y upgrade
 
 RUN apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y sudo  wget unzip texlive-latex-extra texlive-xetex texlive-extra-utils texlive-fonts-extra texlive-latex-recommended texlive-full lyx latex2html firefox-esr \
+RUN apt-get install -y sudo  wget unzip texlive-latex-extra texlive-xetex texlive-extra-utils texlive-fonts-extra texlive-latex-recommended texlive-full fonts-font-awesome \
 # Easy_install
     git \
 # Ssh
@@ -36,6 +36,4 @@ RUN update-locale  fr_FR.UTF-8
 ENV SHELL /bin/bash
 
 RUN mkdir -p /tmp
-
-#ADD /home/pierre/PERSO/CV /home/cv
 
