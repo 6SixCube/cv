@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_IMAGE_NAME=cvmaker
+DOCKER_IMAGE_NAME=sixc/cvmaker
 DOCKER_CMD="$(which docker)"
 DOCKERFILEPATH="$(git rev-parse --show-toplevel)/docker/cvmaker.dockerfile"
 
