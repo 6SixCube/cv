@@ -12,7 +12,9 @@ docker push sixc/cvmaker:latest
 
 ### Build all
 
+```bash
 ./scripts/buildcv.sh
+```
 
 ### PDF
 
