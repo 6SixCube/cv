@@ -1,37 +1,20 @@
 # cvmaker
 
-## push the docker image on public repository
+## Step by step
 
-```bash 
-docker tag cvmaker:latest sixc/cvmaker:latest
-docker login --username=sixc
-docker push sixc/cvmaker:latest
-```
+- Clone Github repository
+- Install Debian dependencies
+- Build the CV 
+- View the result
 
-## build the CV
 
-### Build all
+## clone this github repository : 
 
 ```bash
-./scripts/buildcv.sh
+git clone https://github.com/6SixCube/cv.git
 ```
 
-### PDF
-
-```bash
-scripts/convert2pdf.sh
-```
-
-### HTML
-
-```bash
-scripts/convert2html.sh
-```
-
-"WARNING: You have to build the PDF version to build the html one"
-
-### Install Debian Buster Dependencies
-
+## Install Debian Buster Dependencies
 
 #### git :
 
@@ -62,4 +45,68 @@ sudo usermod -aG docker $USER
 
 !!! And Restart the User Session !!!
 
+
+## build the CV
+
+### Build all
+
+```bash
+./scripts/buildcv.sh
+```
+Execute both script : scripts/convert2pdf.sh and scripts/convert2html.sh
+
+### PDF
+
+```bash
+scripts/convert2pdf.sh
+```
+
+First Time : This Script pull the docker hub image : sixc/cvmaker
+
+### HTML
+
+```bash
+scripts/convert2html.sh
+```
+
+First Time : This Script pull the docker hub image : bwits/pdf2htmlex 
+
+"WARNING: You have to build the PDF version to build the html one"
+
+## View CV
+
+```bash
+PDF : okular out/cv_pierre.force.pdf
+HTML : firefox out/cv_pierre.force.html
+```
+
+
+## push the docker image on public repository
+
+```bash 
+docker tag cvmaker:latest sixc/cvmaker:latest
+docker login --username=sixc
+docker push sixc/cvmaker:latest
+```
+
+## Make your own CV
+
+
+- Change the path on : docker/entrupoint.sh 
+
+```
+latex_src="data/cv_pierre.force.tex" 
+```
+
+- Change the image : 
+
+```
+data/pierreforce.jpg
+```
+
+- Change the data with your own data in file :
+
+```
+data/cv_pierre.force.tex
+```
 
