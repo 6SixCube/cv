@@ -3,21 +3,13 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install base instance
 RUN mkdir -p /var/cache/apt/archives
-RUN apt-get -y update && \
-    apt-get -y upgrade
-
+RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y sudo  wget unzip texlive-latex-extra texlive-xetex texlive-extra-utils texlive-fonts-extra texlive-latex-recommended texlive-full fonts-font-awesome \
-# Easy_install
-    git \
-# Ssh
-    ssh sshpass openssh-server \
-# Vim
-    vim \
-# Shell
-    zsh \
-# Local
-    locales
+RUN apt-get install -y \
+# latex
+texlive-latex-base texlive-latex-extra texlive-fonts-extra texlive-lang-french \
+# Other Packages
+git locales
 
 # Remove proxy
 ENV http_proxy ""
@@ -33,7 +25,6 @@ RUN update-locale  fr_FR.UTF-8
 
 
 #locale
-ENV SHELL /bin/bash
-
+ENV SHELL /bin/zsh
 RUN mkdir -p /tmp
 
