@@ -4,4 +4,5 @@
 SCRIPT_PATH="$(git rev-parse --show-toplevel)"
 
 ${SCRIPT_PATH}/scripts/convert2pdf.sh 
-${SCRIPT_PATH}/scripts/convert2html.sh 
+${SCRIPT_PATH}/scripts/convert2html.sh
+x-www-browser ${SCRIPT_PATH}/out
