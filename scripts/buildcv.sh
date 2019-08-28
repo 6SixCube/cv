@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_PATH="$(git rev-parse --show-toplevel)"
-FILE2CONVERT="`ls ${SCRIPT_PATH}/data/*.tex`"
+FILE2CONVERT="`ls ${SCRIPT_PATH}/data/*.tex | tr '\n' '\n'`"
 FILECONVERTEDPATH="${SCRIPT_PATH}/out"
 source "${SCRIPT_PATH}/scripts/spinner.sh"
 
@@ -23,14 +23,15 @@ showbuildfile()
 {
 	file="$1"
 	woext="${file%.*}"
-        echo "--> File Produced \n"
+        echo -e "\n--> File Produced :"
         ls "${SCRIPT_PATH}/out/${woext}"* | tr '\n' '\n'
 }
 
 
-echo "#### Starting all CV Build ####\n"
-echo "${FILE2CONVERT}"
-echo -e "\n CV are produced in --> ${FILECONVERTEDPATH}"
+echo -e "\n############ Starting all CV Build ############\n\n -  File(s) found :"
+echo "`ls ${SCRIPT_PATH}/data/*.tex | tr '\n' '\n'`"
+echo -e "\n CV are produced in :"
+echo "${FILECONVERTEDPATH}" | tr '\n' '\n'
 
 for texpath in ${FILE2CONVERT}
 do
@@ -39,9 +40,11 @@ do
 	convertPdf
 	convertHtml
 	showbuildfile ${texfile}
-	echo -e "#### finished ${texfile} CV Build ####\n"
+	echo -e "\n#### finished ${texfile} CV Build ####\n"
 done
 
+echo -e "\n############ Finished all CV Build ############\n\n -  File(s) produced :"
+ls -I README.md ${SCRIPT_PATH}/out/| tr '\n' '\n'
 x-www-browser ${SCRIPT_PATH}/out
 
 
