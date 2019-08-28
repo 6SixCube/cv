@@ -1,6 +1,7 @@
 #!/bin/sh
 
-pdffile=cv_pierre.force.pdf
+TEX=${1:-"cv_pierre.force.tex"}
+pdffile="${TEX%.*}.pdf"
 pdfdir="$(git rev-parse --show-toplevel)/out"
 
 
