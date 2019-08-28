@@ -19,8 +19,6 @@
 #
 # Also see: test.sh
 
-echo "I AM THE SPINNER" 
-
 function _spinner() 
 {
     # $1 start/stop
