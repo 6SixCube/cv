@@ -9,7 +9,7 @@ convertPdf()
 {
 	start_spinner "  -  PDF Build"
 	${SCRIPT_PATH}/scripts/convert2pdf.sh ${texfile}
-	stop_spinner $? 
+	stop_spinner $?
 }
 
 convertHtml()
