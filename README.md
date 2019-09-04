@@ -3,7 +3,7 @@
 ## Step by step
 
 - Clone Github repository
-- Install Debian dependencies
+- Install dependencies
 - Build the CV 
 - View the result
 
@@ -14,37 +14,9 @@
 git clone https://github.com/6SixCube/cv.git
 ```
 
-## Install Debian Buster Dependencies
+## Install Dependencies
 
-#### git :
-
-```bash
-apt install git
-```
-
-#### docker :
-
-```bash
-sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo apt-get update
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg2 \
-    software-properties-common
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
-sudo usermod -aG docker $USER
-```
-
-!!! And Restart the User Session !!!
-
+it is necessary to have **git** and **docker** install on your machine.
 
 ## build the CV
 
@@ -53,7 +25,8 @@ sudo usermod -aG docker $USER
 ```bash
 ./scripts/buildcv.sh
 ```
-Execute both script : scripts/convert2pdf.sh and scripts/convert2html.sh
+
+Buildcv.sh execute both script scripts/convert2pdf.sh and scripts/convert2html.sh.
 
 ### PDF
 
@@ -76,8 +49,8 @@ First Time : This Script pull the docker hub image : bwits/pdf2htmlex
 ## View CV
 
 ```bash
-PDF : okular out/cv_pierre.force.pdf
-HTML : firefox out/cv_pierre.force.html
+PDF : x-www-browser out/cv_pierre.force.pdf
+HTML : x-www-browser out/cv_pierre.force.html
 ```
 
 
@@ -92,21 +65,6 @@ docker push sixc/cvmaker:latest
 ## Make your own CV
 
 
-- Change the path on : docker/entrupoint.sh 
-
-```
-latex_src="data/cv_pierre.force.tex" 
-```
-
-- Change the image : 
-
-```
-data/pierreforce.jpg
-```
-
-- Change the data with your own data in file :
-
-```
-data/cv_pierre.force.tex
-```
+- Put your tex file, image and all data in folder data/ and launch ./scripts/buildcv.sh.
+- The build result of your cv will be in out/ folder.
 
