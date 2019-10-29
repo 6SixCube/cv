@@ -47,7 +47,7 @@ echo -e "\n############ Finished all CV Build ############\n\n -  File(s) produc
 ls -I README.md ${SCRIPT_PATH}/out/| tr '\n' '\n'
 
 if [ -z $1 ];then
-	x-www-browser ${SCRIPT_PATH}/out
+	x-www-browser ${SCRIPT_PATH}/out &
 else
-	x-www-browser $1
+	x-www-browser $1 &
 fi
