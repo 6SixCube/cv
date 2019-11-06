@@ -8,14 +8,14 @@ source "${SCRIPT_PATH}/scripts/spinner.sh"
 convertPdf()
 {
 	start_spinner "  -  PDF Build"
-	${SCRIPT_PATH}/scripts/convert2pdf.sh ${texfile}
+	${SCRIPT_PATH}/scripts/convert2pdf.sh ${texfile} > /dev/null 2>&1
 	stop_spinner $?
 }
 
 convertHtml()
 {
 	start_spinner "  -  HTML Build"
-	${SCRIPT_PATH}/scripts/convert2html.sh ${texfile}
+	${SCRIPT_PATH}/scripts/convert2html.sh ${texfile} > /dev/null 2>&1
 	stop_spinner $?
 }
 
