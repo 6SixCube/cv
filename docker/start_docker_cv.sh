@@ -2,10 +2,10 @@
 
 SMC_DIR="/home/pierre/PERSO/CV"
 FWKV3_HOSTNAME=cvmaker
-DOCKER_IMAGE_NAME=cvmaker
+DOCKER_IMAGE_NAME=sixc/cvmaker
 PROGRAM_DIR=$(realpath $(dirname "$0"))
 DOCKER_CMD=$(which docker)
-CONTAINER_NAME=cvmaker
+CONTAINER_NAME=sixc/cvmaker
 SMC_DIR_IN_DOCKER="/home/cv"
 
 launch () {
