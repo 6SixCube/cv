@@ -24,7 +24,7 @@ showbuildfile()
 	file="$1"
 	woext="${file%.*}"
         echo -e "\n--> File Produced :"
-        ls "${SCRIPT_PATH}/out/${woext}"* | tr '\n' '\n'
+        ls -l "${SCRIPT_PATH}/out/${woext}"* | sed "s#^.*./##"
 }
 
 
@@ -44,10 +44,13 @@ do
 done
 
 echo -e "\n############ Finished all CV Build ############\n\n -  File(s) produced :"
-ls -I README.md ${SCRIPT_PATH}/out/| tr '\n' '\n'
+ls -I README.md -l ${SCRIPT_PATH}/out/
+
+
+
 
 if [ -z $1 ];then
-	x-www-browser ${SCRIPT_PATH}/out &
+	exit
 else
-	x-www-browser $1 &
+	x-www-browser ${SCRIPT_PATH}/$1 &
 fi
