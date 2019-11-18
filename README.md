@@ -20,13 +20,18 @@ it is necessary to have **git** and **docker** install on your machine.
 
 ## build the CV
 
-### Build all
+### Build CV
 
 ```bash
-./scripts/buildcv.sh
+./scripts/buildcv.sh 
 ```
 
 Buildcv.sh execute both script scripts/convert2pdf.sh and scripts/convert2html.sh.
+
+An optional argument is possible to view directly a directory or a file at the end of script execution.
+```bash
+./scripts/buildcv.sh out/your-cv.pdf
+```
 
 ### PDF
 
@@ -34,7 +39,7 @@ Buildcv.sh execute both script scripts/convert2pdf.sh and scripts/convert2html.s
 scripts/convert2pdf.sh
 ```
 
-First Time : This Script pull the docker hub image : sixc/cvmaker
+only at first Time : This Script pull the docker hub image : sixc/cvmaker
 
 ### HTML
 
@@ -42,7 +47,7 @@ First Time : This Script pull the docker hub image : sixc/cvmaker
 scripts/convert2html.sh
 ```
 
-First Time : This Script pull the docker hub image : bwits/pdf2htmlex 
+only at first Time : This Script pull the docker hub image : bwits/pdf2htmlex 
 
 "WARNING: You have to build the PDF version to build the html one"
 
@@ -53,18 +58,18 @@ PDF : x-www-browser out/cv_pierre.force.pdf
 HTML : x-www-browser out/cv_pierre.force.html
 ```
 
+## Make your own CV
 
-## push the docker image on public repository
+
+- Put your tex file, image and all data in folder data/ and launch ./scripts/buildcv.sh.
+- The build result of your cv will be in out/ folder.
+
+
+## push the docker image on public repository (dockerhub)
 
 ```bash 
 docker tag cvmaker:latest sixc/cvmaker:latest
 docker login --username=sixc
 docker push sixc/cvmaker:latest
 ```
-
-## Make your own CV
-
-
-- Put your tex file, image and all data in folder data/ and launch ./scripts/buildcv.sh.
-- The build result of your cv will be in out/ folder.
 
